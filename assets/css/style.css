@@ -34,4 +34,12 @@ footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
+
+    .rrss-icono{
+        display: flex;
+        align-items: center;
+        place-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 }
