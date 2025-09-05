@@ -36,7 +36,65 @@
         </ul>
     </nav>
     <main>
+        <section class="categoria">
+            <button class="accordion">🍰 Tortas Cuadradas</button>
+            <div class="contenido">
+                <div class="grid">
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Torta Cuadrada de Chocolate</h3>
+                        <p>Deliciosa torta de chocolate con capas de ganache y un toque de avellanas. Personalizable con mensajes especiales.</p>
+                        <p class="precio">$45.000 CLP</p>
+                    </div>
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Torta Cuadrada de Frutas</h3>
+                        <p>Una mezcla de frutas frescas y crema chantilly sobre un suave bizcocho de vainilla, ideal para celebraciones.</p>
+                        <p class="precio">$50.000 CLP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="categoria">
+            <button class="accordion">🎂 Tortas Circulares</button>
+            <div class="contenido">
+                <div class="grid">
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Torta Circular de Vainilla</h3>
+                        <p>Bizcocho de vainilla clásico relleno con crema pastelera y cubierto con un glaseado dulce, perfecto para cualquier ocasión.</p>
+                        <p class="precio">$40.000 CLP</p>
+                    </div>
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Torta Circular de Manjar</h3>
+                        <p>Torta tradicional chilena con manjar y nueces, un deleite para los amantes de los sabores dulces y clásicos.</p>
+                        <p class="precio">$42.000 CLP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="categoria">
+            <button class="accordion">🍪 Postres Individuales</button>
+            <div class="contenido">
+                <div class="grid">
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Mousse de Chocolate</h3>
+                        <p>Postre individual cremoso y suave, hecho con chocolate de alta calidad, ideal para los amantes del chocolate.</p>
+                        <p class="precio">$5.000 CLP</p>
+                    </div>
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Tiramisú Clásico</h3>
+                        <p>Un postre italiano individual con capas de café, mascarpone y cacao, perfecto para finalizar cualquier comida.</p>
+                        <p class="precio">$5.500 CLP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
     </main>
@@ -47,7 +105,24 @@
     <p>&copy; 2024 Pastelería 1000 Sabores. Todos los derechos reservados.</p>
     <p><a href="#">Políticas de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
     <p>Síguenos en redes sociales</p>
+    <div class="rrss-icono">
+        <img width="20px" src="./assets/img/instagram-logo-glyph.svg">
+        <img width="20px" src="./assets/img/logo-tiktok.svg">
+        <img width="20px" src="./assets/img/whatsapp-glyph-black-logo.svg">
+
+    </div>
 </footer>
+
+<script>
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("active");
+            const content = btn.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
 
 
 

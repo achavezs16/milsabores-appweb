@@ -36,7 +36,38 @@
         </ul>
     </nav>
     <main>
-        
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">Un poco de historia...</div>
+                <div class="accordion-content">
+                    <p>
+                        Pastelería Mil Sabores abrió sus puertas un día de septiembre en 1974. Ubicandose a pasos del histórico Parque Italia, Valparaíso.
+                        Famosa por participar en los récord Guinness en 1995 confeccionando la torta más grande del mundo.
+                    </p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">Nuestra misión</div>
+                    <div class="accordion-content">
+                        <p>
+                            Ofrecer una experiencia dulce y memorable a nuestros clientes, proporcionando tortas y productos
+                            de repostería de alta calidad para todas las ocasiones, mientras celebramos nuestras raíces
+                            históricas y fomentamos la creatividad en la repostería.
+                        </p>
+                    </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">Nuestra visión</div>
+                    <div class="accordion-content">
+                        <p>
+                            Convertirnos en la tienda online líder de productos de repostería en Chile, conocida por nuestra
+                            innovación, calidad y el impacto positivo en la comunidad, especialmente en la formación de nuevos
+                            talentos en gastronomía.
+                        </p>
+                    </div>
+            </div>
+
+        </div>
 
 
     </main>
@@ -47,7 +78,36 @@
     <p>&copy; 2024 Pastelería 1000 Sabores. Todos los derechos reservados.</p>
     <p><a href="#">Políticas de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
     <p>Síguenos en redes sociales</p>
+    <div class="rrss-icono">
+        <img width="20px" src="./assets/img/instagram-logo-glyph.svg">
+        <img width="20px" src="./assets/img/logo-tiktok.svg">
+        <img width="20px" src="./assets/img/whatsapp-glyph-black-logo.svg">
+
+    </div>
 </footer>
+
+<script>
+    const headers = document.querySelectorAll(".accordion-header");
+
+    headers.forEach(header => {
+        header.addEventListener("click",() => {
+            const content = header.nextElementSibling;
+            const open = header.classList.contains("active");
+
+            document.querySelectorAll(".accordion-header").forEach(h => h.classList.remove("active"));
+            document.querySelectorAll(".accordion-content").forEach(c => {
+                c.style.maxHeight = null;
+                c.classList.remove("show");
+            });
+
+            if(!open){
+                header.classList.add("active");
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.add("show");
+            }
+        });
+    });
+</script>
 
 
 
