@@ -59,6 +59,24 @@
     </div>
 </footer>
 
+<script>
+    function obtenerCarrito() {
+        return JSON.parse(localStorage.getItem("carrito")) || [];
+    }
+
+    function actualizarContador() {
+        const carrito = obtenerCarrito();
+        const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+        const cartCountElement = document.getElementById("cart-count");
+        if (cartCountElement) {
+            cartCountElement.textContent = totalItems;
+        }
+    }
+
+    // Actualizar contador apenas se cargue la página
+    window.addEventListener("DOMContentLoaded", actualizarContador);
+</script>
+
 
 
 </html>

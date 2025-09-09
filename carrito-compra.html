@@ -26,14 +26,94 @@
     </div>
 </header>
 <body>
-
     <main>
+        <h1 style="text-align: center;">Carrito de Compras</h1>
+        <div id="carrito-contenido"></div>
+        <p class="total" id="total"></p>
+        <button class="vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
 
+        <script>
+            function obtenerCarrito() {
+                return JSON.parse(localStorage.getItem("carrito")) || [];
+            }
+
+            function guardarCarrito(carrito) { 
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+            }
+
+            function renderCarrito() {
+                const carrito = obtenerCarrito();
+                const contenedor = document.getElementById("carrito-contenido");
+                contenedor.innerHTML = "";
+
+                let total = 0;
+
+                if(carrito.length === 0) {
+                    contenedor.innerHTML = "<p>No hay productos en el carrito.</p>";
+                    document.getElementById("total").textContent = "";
+                    return;
+                }
+
+                carrito.forEach((item, index) => {
+                    total += item.precio * item.cantidad;
+
+                    const div = document.createElement("div");
+                    div.classList.add("item-carrito");
+
+                    div.innerHTML = `
+                        <img scr="${item.imagen}" alt="${item.nombre}">
+                        <div class="info">
+                            <h3>${item.nombre}</h3>
+                            <p>Cantidad: ${item.cantidad}</p>
+                            <p>SubTotal: $${(item.precio * item.cantidad).toLocaleString()} CLP</p>
+                        </div>
+                        <div class="acciones">
+                            <button onclick="aumentar(${index})">+1</button>
+                            <button onclick="disminuir(${index})">-1</button>
+                            <button onclick="eliminarItem(${index})">Eliminar</button>
+                        </div>    
+                        `;
+                        contenedor.appendChild(div);
+                });
+                document.getElementById("total").textContent = `TOTAL: $${total.toLocaleString()} CLP`;
+            }
+
+            function aumentar(index) {
+                let carrito = obtenerCarrito();
+                carrito[index].cantidad++;
+                guardarCarrito(carrito);
+                renderCarrito();
+            }
+
+            function disminuir(index) {
+                let carrito = obtenerCarrito();
+                if(carrito[index].cantidad > 1) {
+                    carrito[index].cantidad--;
+                } else {
+                    carrito.splice(index, 1);
+                }
+                guardarCarrito(carrito);
+                renderCarrito();
+            }
+
+            function eliminarItem(index) {
+                let carrito = obtenerCarrito();
+                carrito.splice(index, 1);
+                guardarCarrito(carrito);
+                renderCarrito();
+            }
+
+            function vaciarCarrito() {
+                localStorage.removeItem("carrito");
+                renderCarrito();
+            }
+
+            renderCarrito();
+
+        </script>
 
 
     </main>
-
-    
 </body>
 <footer>
     <p>&copy; 2024 Pastelería 1000 Sabores. Todos los derechos reservados.</p>
@@ -46,6 +126,7 @@
 
     </div>
 </footer>
+
 
 
 

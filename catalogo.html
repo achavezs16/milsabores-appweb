@@ -36,7 +36,6 @@
             <li><a href="./quienes-somos.html">Quienes somos</a></li>
             <li><a href="./catalogo.html">Catálogo</a></li>
             <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./carrito-compra.html">Carrito</a></li>
         </ul>
     </nav>
     <main>
@@ -295,12 +294,6 @@
                 </div>
             </div>
         </section>
-        <div id="panel-carrito" class="panel-carrito">
-            <h3>Carrito de Compras</h3>
-            <ul id="lista-carrito"></ul>
-            <p>Total: <span id="total-carrito">$0</span></p>
-            <button id="cerrar-carrito">Cerrar</button>
-        </div>
         <div id="mensaje-flotante" class="mensaje-flotante">
             ✅ Producto agregado al carrito
         </div>
@@ -349,33 +342,29 @@
     }
 
     /*AGREGAR PRODUCTOS*/
-    let cartCount = 0;
-
-    const cartCountElement = document.getElementById("cart-count");
     const addToCartButtons = document.querySelectorAll(".agregar");
 
     addToCartButtons.forEach(button => {
         button.addEventListener("click", () => {
             const card = button.closest(".card");
-            const quantityElement = card.querySelector(".num");
-            const num = parseInt(quantityElement.textContent);
             const nombre = card.querySelector("h3").textContent;
             const precio = parseInt(card.querySelector(".precio").textContent.replace(/\D/g,''));
+            const cantidad = parseInt(card.querySelector(".num").textContent);
+            const imagen = card.querySelector("img").src;
 
-            cartCount+= num;
-            cartCountElement.textContent = cartCount;
+            let carrito = obtenerCarrito();
 
-            quantityElement.textContent = 1;
+            const existente = carrito.find(item => item.nombre === nombre);
+            if(existente) {
+                existente.cantidad += cantidad;
+            } else {
+                carrito.push({nombre, precio, cantidad, imagen});
+            }
 
-            const listaCarrito = document.getElementById("lista-carrito");
-            const itemCarrito = document.createElement("li");
-            itemCarrito.textContent = `${nombre} x${num} - $${(precio*num).toLocaleString()} CLP`;
-            listaCarrito.appendChild(itemCarrito);
+            guardarCarrito(carrito);
+            actualizarContador();
 
-            const totalElement = document.getElementById("total-carrito");
-            let totalActual = parseInt(totalElement.textContent.replace(/\D/g,'')) || 0;
-            totalActual += precio*num;
-            totalElement.textContent = `$${totalActual.toLocaleString()} CLP`;
+            card.querySelector(".num").textContent = 1;
 
             mostrarMensaje(`Agregaste ${num} ${card.querySelector("h3").textContent} al carrito`);
         });
@@ -410,21 +399,9 @@
         }, 3000);
     }
 
-    /*PANEL CARRITO*/
-    const panelCarrito = document.getElementById("panel-carrito");
-    const carritoIcon = document.querySelector(".cart-icon");
-    const cerrarCarrito = document.getElementById("cerrar-carrito");
-
-    carritoIcon.addEventListener("click", () => {
-        panelCarrito.classList.toggle("mostrar");
-    });
-
-    cerrarCarrito.addEventListener("click", () => {
-        panelCarrito.classList.remove("mostrar");
-    });
-
+    /*INICIALIZAR CONTADOR*/
     window.addEventListener("DOMContentLoaded", () => {
-        panelCarrito.classList.remove("mostrar");
+        actualizarContador();
     });
 
 
