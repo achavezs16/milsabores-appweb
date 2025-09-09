@@ -295,6 +295,12 @@
                 </div>
             </div>
         </section>
+        <div id="panel-carrito" class="panel-carrito">
+            <h3>Carrito de Compras</h3>
+            <ul id="lista-carrito"></ul>
+            <p>Total: <span id="total-carrito">$0</span></p>
+            <button id="cerrar-carrito">Cerrar</button>
+        </div>
         <div id="mensaje-flotante" class="mensaje-flotante">
             ✅ Producto agregado al carrito
         </div>
@@ -317,6 +323,7 @@
 </footer>
 
 <script>
+    /*QUIENES SOMOS*/
     const accordions = document.querySelectorAll(".accordion");
     accordions.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -326,9 +333,22 @@
         });
     });
 
-</script>
-<script>
-    /*CONTADOR CARRITO*/
+    /*UTILIDADES CARRITO*/
+    function obtenerCarrito() {
+        return JSON.parse(localStorage.getItem("carrito")) || [];
+    }
+
+    function guardarCarrito(carrito) {
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+
+    function actualizarContador() {
+        const carrito = obtenerCarrito();
+        const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+        document.getElementById("cart-count").textContent = totalItems; 
+    }
+
+    /*AGREGAR PRODUCTOS*/
     let cartCount = 0;
 
     const cartCountElement = document.getElementById("cart-count");
@@ -339,11 +359,25 @@
             const card = button.closest(".card");
             const quantityElement = card.querySelector(".num");
             const num = parseInt(quantityElement.textContent);
+            const nombre = card.querySelector("h3").textContent;
+            const precio = parseInt(card.querySelector(".precio").textContent.replace(/\D/g,''));
 
             cartCount+= num;
             cartCountElement.textContent = cartCount;
 
             quantityElement.textContent = 1;
+
+            const listaCarrito = document.getElementById("lista-carrito");
+            const itemCarrito = document.createElement("li");
+            itemCarrito.textContent = `${nombre} x${num} - $${(precio*num).toLocaleString()} CLP`;
+            listaCarrito.appendChild(itemCarrito);
+
+            const totalElement = document.getElementById("total-carrito");
+            let totalActual = parseInt(totalElement.textContent.replace(/\D/g,'')) || 0;
+            totalActual += precio*num;
+            totalElement.textContent = `$${totalActual.toLocaleString()} CLP`;
+
+            mostrarMensaje(`Agregaste ${num} ${card.querySelector("h3").textContent} al carrito`);
         });
     });
 
@@ -375,6 +409,24 @@
             mensajeFlotante.classList.remove("mostrar");
         }, 3000);
     }
+
+    /*PANEL CARRITO*/
+    const panelCarrito = document.getElementById("panel-carrito");
+    const carritoIcon = document.querySelector(".cart-icon");
+    const cerrarCarrito = document.getElementById("cerrar-carrito");
+
+    carritoIcon.addEventListener("click", () => {
+        panelCarrito.classList.toggle("mostrar");
+    });
+
+    cerrarCarrito.addEventListener("click", () => {
+        panelCarrito.classList.remove("mostrar");
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+        panelCarrito.classList.remove("mostrar");
+    });
+
 
 
 </script>

@@ -290,8 +290,29 @@ header h1 {
     transform: translateY(20px);
     z-index: 1000;
 }
-.mensaje-flotante.mostar { 
+.mensaje-flotante.mostrar { 
     opacity: 1;
     transform: translateY(0);
 }
 
+/*PANEL CARRITO*/
+.panel-carrito {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100%;
+    background-color: #FFF5E1;
+    box-shadow: -4px 0 6px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+}
+.panel-carrito.mostrar {
+    right: 0;
+}
+.panel-carrito ul {
+    list-style: none;
+    padding: 0;
+}
