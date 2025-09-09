@@ -24,6 +24,10 @@
         <h1 style="margin: 0;">Pastelería Mil Sabores</h1>
         <p style="margin: 0;">50 años endulzando tus recuerdos</p>
     </div>
+    <div class="cart-icon">
+        <img width="30px" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+        <span id="cart-count">0</span>
+    </div>
 </header>
 <body>
     <nav class="navbar">
@@ -45,7 +49,7 @@
                         <h3>Torta Cuadrada de Chocolate</h3>
                         <p>Deliciosa torta de chocolate con capas de ganache y un toque de avellanas. Personalizable con mensajes especiales.</p>
                         <p class="precio">$45.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -57,7 +61,7 @@
                         <h3>Torta Cuadrada de Frutas</h3>
                         <p>Una mezcla de frutas frescas y crema chantilly sobre un suave bizcocho de vainilla, ideal para celebraciones.</p>
                         <p class="precio">$50.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -77,7 +81,7 @@
                         <h3>Torta Circular de Vainilla</h3>
                         <p>Bizcocho de vainilla clásico relleno con crema pastelera y cubierto con un glaseado dulce, perfecto para cualquier ocasión.</p>
                         <p class="precio">$40.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -89,7 +93,7 @@
                         <h3>Torta Circular de Manjar</h3>
                         <p>Torta tradicional chilena con manjar y nueces, un deleite para los amantes de los sabores dulces y clásicos.</p>
                         <p class="precio">$42.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -109,7 +113,7 @@
                         <h3>Mousse de Chocolate</h3>
                         <p>Postre individual cremoso y suave, hecho con chocolate de alta calidad, ideal para los amantes del chocolate.</p>
                         <p class="precio">$5.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -121,7 +125,7 @@
                         <h3>Tiramisú Clásico</h3>
                         <p>Un postre italiano individual con capas de café, mascarpone y cacao, perfecto para finalizar cualquier comida.</p>
                         <p class="precio">$5.500 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -141,7 +145,7 @@
                         <h3>Torta Sin Azúcar Naranja</h3>
                         <p>Torta ligera y deliciosa, endulzada naturalmente, ideal para quienes buscan opciones más saludables.</p>
                         <p class="precio">$48.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -153,7 +157,7 @@
                         <h3>Cheesecake Sin Azúcar</h3>
                         <p>Suave y cremoso, este cheesecake es una opción perfecta para disfrutar sin culpa.</p>
                         <p class="precio">$47.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -173,7 +177,7 @@
                         <h3>Empanada de Manzana</h3>
                         <p>Pastelería tradicional rellena de manzanas especiadas, perfecta para un dulce desayuno o merienda.</p>
                         <p class="precio">$3.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -185,7 +189,7 @@
                         <h3>Tarta de Santiago</h3>
                         <p>Tradicional tarta española hecha con almendras, azúcar, y huevos, una delicia para los amantes de los postres clásicos.</p>
                         <p class="precio">$6.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -205,7 +209,7 @@
                         <h3>Brownie Sin Gluten</h3>
                         <p>Rico y denso, este brownie es perfecto para quienes necesitan evitar el gluten sin sacrificar el sabor.</p>
                         <p class="precio">$4.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -217,7 +221,7 @@
                         <h3>Pan Sin Gluten</h3>
                         <p>Suave y esponjoso, ideal para sándwiches o para acompañar cualquier comida.</p>
                         <p class="precio">$3.500 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -237,7 +241,7 @@
                         <h3>Torta Vegana de Chocolate</h3>
                         <p>Torta de chocolate húmeda y deliciosa, hecha sin productos de origen animal, perfecta para veganos.</p>
                         <p class="precio">$50.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -249,7 +253,7 @@
                         <h3>Galletas Veganas de Avena</h3>
                         <p>Crujientes y sabrosas, estas galletas son una excelente opción para un snack saludable y vegano.</p>
                         <p class="precio">$4.500 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -269,7 +273,7 @@
                         <h3>Torta Especial de Cumpleaños</h3>
                         <p>Diseñada especialmente para celebraciones, personalizable con decoraciones y mensajes únicos.</p>
                         <p class="precio">$55.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -281,7 +285,7 @@
                         <h3>Torta Especial de Bodas</h3>
                         <p>Elegante y deliciosa, esta torta está diseñada para ser el centro de atención en cualquier boda.</p>
                         <p class="precio">$60.000 CLP</p>
-                            <div class="cantidad">
+                            <div class="control-cantidad">
                                 <button class="menos">-</button>
                                 <span class="num">1</span>
                                 <button class="mas">+</button>
@@ -291,6 +295,9 @@
                 </div>
             </div>
         </section>
+        <div id="mensaje-flotante" class="mensaje-flotante">
+            ✅ Producto agregado al carrito
+        </div>
 
 
     </main>
@@ -319,29 +326,56 @@
         });
     });
 
-    document.querySelectorAll(".card").forEach(card => {
-    const menos = card.querySelector(".menos");
-    const mas = card.querySelector(".mas");
-    const num = card.querySelector(".num");
+</script>
+<script>
+    /*CONTADOR CARRITO*/
+    let cartCount = 0;
 
-    let cantidad = 1;
+    const cartCountElement = document.getElementById("cart-count");
+    const addToCartButtons = document.querySelectorAll(".agregar");
 
-    mas.addEventListener("click", () => {
-        cantidad++;
-        num.textContent = cantidad;
-    });
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const card = button.closest(".card");
+            const quantityElement = card.querySelector(".num");
+            const num = parseInt(quantityElement.textContent);
 
-    menos.addEventListener("click", () => {
-        if (cantidad > 1) {
-          cantidad--;
-          num.textContent = cantidad;
-        }
-    });
+            cartCount+= num;
+            cartCountElement.textContent = cartCount;
 
-    card.querySelector(".agregar").addEventListener("click", () => {
-        alert(`Agregaste ${cantidad} ${card.querySelector("h3").textContent} al carrito`);
+            quantityElement.textContent = 1;
         });
     });
+
+    /* CONTROL BOTONES + - */
+    document.querySelectorAll(".mas").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const quantityElement = btn.parentElement.querySelector(".num");
+            let value = parseInt(quantityElement.textContent);
+            quantityElement.textContent = value + 1;
+        });
+    });
+
+    document.querySelectorAll(".menos").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const quantityElement = btn.parentElement.querySelector(".num");
+            let value = parseInt(quantityElement.textContent);
+            if (value > 1) {
+                quantityElement.textContent = value - 1;
+            }
+        });
+    });
+
+    /*MENSAJE FLOTANTE*/
+    function mostrarMensaje(mensaje) {
+        const mensajeFlotante = document.getElementById("mensaje-flotante");
+        mensajeFlotante.textContent = mensaje;
+        mensajeFlotante.classList.add("mostrar");
+        setTimeout(() => {
+            mensajeFlotante.classList.remove("mostrar");
+        }, 3000);
+    }
+
 
 </script>
 

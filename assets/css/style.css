@@ -15,6 +15,9 @@ header{
     padding: 1rem;
     text-align: center;
 }
+header .shopping-cart-container {
+    place-content: right;
+}
 
 /*BARRA NAVEGACIÓN*/
 .navbar{
@@ -214,23 +217,29 @@ header h1 {
 }
 
 /*BOTON AGREGAR CANTIDAD*/
-.cantidad {
+.control-cantidad {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     margin: 10px 0;
 }
-.cantidad button {
+.control-cantidad button {
     background: #FFC0CB;
     border: none;
     padding: 5px 10px;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.2s;
 }
-.cantidad .num {
+.control-cantidad .num {
+    margin: 0 10px;
     font-weight: bold;
+    font-size: 16px;
+}
+.control-cantidad button:hover{
+    background: #923838;
 }
 .agregar {
     background: #8B4513;
@@ -245,4 +254,44 @@ header h1 {
     background: #A0522D;
 }
 
+/*CARRITO*/
+.cart-icon {
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+}
+.cart-icon img {
+    width: 35px;
+}
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #ff4d4d;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/*MENSAJE FLOTANTE*/
+.mensaje-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FFC0CB;
+    color: #5D4037;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+    z-index: 1000;
+}
+.mensaje-flotante.mostar { 
+    opacity: 1;
+    transform: translateY(0);
+}
 
