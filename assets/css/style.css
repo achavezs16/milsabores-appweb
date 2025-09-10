@@ -26,6 +26,9 @@ header .logo-container {
 header .cart-icon {
     margin-left: 50px;
 }
+header .cart-icon img {
+    width: 50px;
+}
 
 /*BARRA NAVEGACIÓN*/
 .navbar{
@@ -59,106 +62,39 @@ footer .rrss-icono{
 }
 
 /*QUIENES SÓMOS-MISION-VISION*/
-.quienes-somos{
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-}
-.quienes-somos .titulo-1{
-    display: flex;
-    padding: 20px;
-    align-items: center;
-
-}
-.quienes-somos .text-1{
-    display: flex;
-    align-items: center;
-}
-
-.mision{
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-}
-.mision .titulo-2{
-    display: flex;
-    padding: 20px;
-    align-items: center;
-}
-.mision .text-2{
-    display: flex;
-    align-items: center;
-}
-
-.vision{
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-}
-.vision .titulo-3{
-    display: flex;
-    padding: 20px;
-    align-items: center;
-}
-.vision .text-3{
-        display: flex;
-        align-items: center;
-}
-
-header h1 {
-    font-family: 'Pacifico', cursive;
-    margin: 0;
-}
-
-.accordion {
-    max-width: 800px;
-    margin: 2rem auto;
-    border-radius: 8px;
-    overflow: hidden;
-}
-.accordion-item{
-    border-bottom: 2px solid #FFD4DA;
-}
-    
-.accordion-header {
-    background-color: #FFC0CB; /* Rosa suave */
-    padding: 1rem;
-    cursor: pointer;
-    font-family: 'Pacifico', sans-serif;
-    font-size: 1.3rem;
-    color: #5D4037;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.3s;
-}
-.accordion-header:hover {
-    background-color: #ffb6c1;
-}
-.accordion-header::after {
-    content: '+';
-    font-weight: bold;
-    transition: transform 0.3s;
-}
-.accordion-header.active::after {
-    content: '-';
-    transform: rotate(180deg);
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+.historia {
     background: #fff8f2;
-    padding: 0 1rem;
+    border-left: 6px solid #FFC0CB;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
 }
-.accordion-content p {
-    margin: 1rem 0;
-    line-height: 1.6;
+.historia h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #5D4037;
 }
-.accordion-content.show {
-    padding: 1rem;
+.grid-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.grid-info div {
+    background: #fff8f2;
+    border: 2px solid #FFD4DA;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: justify;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.grid-info div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.grid-info h2 {
+    font-size: 1.5 rem;
+    margin-bottom: 0.5rem;
+    color: #5D4037;
 }
 
 /*CATÁLOGO*/
@@ -229,10 +165,13 @@ header h1 {
 
 /*BOTON AGREGAR CANTIDAD*/
 .control-cantidad {
-    display: flex;
+    display: inline-block;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    border: 3px solid;
+    border-radius: 12px;
+    max-width: 250px;
+    padding: 3px 15px;
+    background: #fff;
     margin: 10px 0;
 }
 .control-cantidad button {
