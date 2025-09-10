@@ -125,7 +125,7 @@ header h1 {
     background-color: #FFC0CB; /* Rosa suave */
     padding: 1rem;
     cursor: pointer;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', sans-serif;
     font-size: 1.3rem;
     color: #5D4037;
     display: flex;
@@ -165,58 +165,61 @@ header h1 {
 .categoria {
     margin: 2rem auto;
     max-width: 1200px;
+    animation: fadeIn 0.6s ease;
 }
-.categoria button {
-    width: 100%;
-    background-color: #8B4513;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 1rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s;
+
+.titulo-categoria {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #6B3E26;
+    margin-bottom: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    border: 2px solid;
+    border-radius: 12px;
+    background: #FFF5E1;
 }
-.categoria button:hover {
-    background-color: #A0522D;
-}
-.contenido {
-    display: none;
-    padding: 1rem 0;
-    animation: fadeIn 0.5s ease;
-}
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
 }
+
+/*TARJETAS DE PRODUCTOS*/
 .card {
-    background: white;
+    background: #FFF5E1;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 1rem;
-    transition: transform 0.2s;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 .card img {
-    width: 100px;
-    border-radius: 12px;
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
     margin-bottom: 1rem;
 }
 .card h3 {
     margin: 0.5rem 0;
+    color: #6B3E26;
+    text-align: justify;
 }
 .card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.4;
+    color: #444;
+    text-align: justify;
 }
 .precio {
     font-weight: bold;
-    color: #8B4513;
-    margin-top: 0.5rem;
+    color: #D35400;
+    margin: 0.8rem 0;
+    display: block;
 }
 
 @keyframes fadeIn{
