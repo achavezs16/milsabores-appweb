@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pastelería Mil Sabores - Inicio</title>
+    <title>Pastelería Mil Sabores - Contacto</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
@@ -26,14 +26,11 @@
         <h1 style="margin: 0;">Pastelería Mil Sabores</h1>
         <p style="margin: 0;">50 años endulzando tus recuerdos</p>
     </div>
-    <div>
-        <div class="cart-icon">
-            <a href="./carrito-compra.html" class="cart-icon">
-            <img width="30px" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
-            <span id="cart-count">0</span>
-            </a>
-        </div>
-
+    <div class="cart-icon">
+        <a href="./carrito-compra.html" class="cart-icon">
+        <img width="30px" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+        <span id="cart-count">0</span>
+        </a>
     </div>
 </header>
 <body>
@@ -43,13 +40,33 @@
             <li><a href="./quienes-somos.html">Quienes somos</a></li>
             <li><a href="./catalogo.html">Catálogo</a></li>
             <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contacto.html">Contacto</a></li>
         </ul>
     </nav>
-    <main>
-
-
-
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="form-container">
+            <h1 style="text-align: center; margin-bottom: 0;">Contáctanos 📩</h1>
+            <p style="text-align: center; margin-top: 2px;">¿Tienes alguna consulta? Completa el siguiente formulario y te contactaremos prontamente 😄</p>
+            <div>
+                <form id="form-contacto" class="form-contacto">
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar</button>
+                </form>
+                <p id="mensaje-exito" style="display: none; color: green; text-align: center; margin-top: 15px;">
+                    ✅ ¡Gracias por contactarnos! Responderemos pronto.
+                </p>
+            </div>
+        </div>    
     </main>
 
     
@@ -67,6 +84,14 @@
 </footer>
 
 <script>
+    document.getElementById("form-contacto").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        document.getElementById("mensaje-exito").style.display = "block";
+
+        this.reset();
+    });
+
     function obtenerCarrito() {
         return JSON.parse(localStorage.getItem("carrito")) || [];
     }
