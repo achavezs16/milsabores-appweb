@@ -26,14 +26,18 @@
         <h1 style="margin: 0;">Pastelería Mil Sabores</h1>
         <p style="margin: 0;">50 años endulzando tus recuerdos</p>
     </div>
-    <div>
+    <div class="icons" style="display: flex; gap: 30px;">
         <div class="cart-icon">
             <a href="./carrito-compra.html" class="cart-icon">
-            <img width="30px" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+            <img src="./assets/img/shopping-cart.svg" alt="shopping-cart">
             <span id="cart-count">0</span>
             </a>
         </div>
-
+        <div class="user-icon">
+            <a href="./login.html" class="user-icon">
+            <img width="50px" src="./assets/img/user-icon.png" alt="user-icon">
+            </a>
+        </div>
     </div>
 </header>
 <body>
@@ -47,9 +51,44 @@
         </ul>
     </nav>
     <main>
+        <section class="hero">
+            <h2>Bienvenidos a Pastelería Mil Sabores</h2>
+            <p>50 años creando momentos dulces e inolvidables</p>
+        </section>
+        <div class="contenedor">
+            <section class="destacados">
+                <h3>Productos Destacados</h3>
+                <div class="productos">
+                    <div class="producto">
+                        <img src="./assets/img/torta-circular-manjar.webp">
+                        <h4>Torta Circular de Manjar</h4>
+                        <p>$42.000 CLP</p>
+                    </div>
+                    <div class="producto">
+                        <img src="./assets/img/torta-cuadrada-frutas.webp">
+                        <h4>Torta Cuadrada de Frutas</h4>
+                        <p>$50.000 CLP</p>
+                    </div>
+
+                </div>
+
+            </section>
 
 
-
+            <aside class="playlistMensual">
+                <h3>Mil Sabores de: Septiembre 2025 🎶</h3>
+                <p>Playlist mensual cuarada por nuestro #TeamMilSabores en Valparaíso, Chile.</p>
+                <p>Visita nuestras sucursales ubicadas en la quinta costa, tal vez escuches una de estas canciones...</p>
+                <iframe data-testid="embed-iframe" 
+                    style="border-radius:12px" 
+                    src="https://open.spotify.com/embed/playlist/0zu1O3HiwPYjV2hy9xHYOm?utm_source=generator" 
+                    width="100%" height="380" frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                </iframe>
+            </aside>
+        </div>
     </main>
 
     

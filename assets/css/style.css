@@ -45,6 +45,57 @@ header .cart-icon img {
     font-weight: bold;
 }
 
+/*INDEX*/
+.hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #FFC0CB, #FFF5E1);
+}
+.hero h2 {
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 0.5rem;
+}
+.hero p {
+    font-size: 1.2rem;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+.destacados h3 {
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 1rem;
+}
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.producto {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.producto img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+.playlistMensual {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+
+
 /*FOOTER*/
 footer {
     background-color: #8B4513;
@@ -366,4 +417,123 @@ footer .rrss-icono{
 }
 .btn-enviar:hover {
     background-color: #A04000;
+}
+
+/*BLOG*/
+.blog {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+.entrada {
+    background: "fff8f2";
+    border: 2px solid #FFD4DA;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.entrada img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.entrada p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+.entrada a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #FFC0CB;
+    color: #5D4037;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.entrada a:hover {
+    background: #ffb6c1;
+}
+
+/*LOGIN*/
+.login-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+.login-container h2 {
+    margin-bottom: 1.5rem;
+}
+.login-container input {
+    width: 100%;
+    padding: 0.7 rem;
+    margin: 0.5rem 0;
+    border: 1px solid #FFD4DA;
+    border-radius: 5px;
+}
+.login-container button {
+    width: 100%;
+    padding: 0.7rem;
+    background: #FFC0CB;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #5D4037;
+    transition: background 0.3s;
+    margin-top: 0.5rem;
+}
+.login-container button:hover {
+    background: #ffb6c1;
+}
+.mensaje {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: red;
+}
+
+/*REGISTRO USER*/
+.registro-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+.registro-container h2 {
+    margin-bottom: 1.5rem;
+}
+.registro-container input {
+    width: 100%;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    border: 1px solid #FFD4DA;
+    border-radius: 5px;
+}
+.registro-container button {
+    width: 100%;
+    padding: 0.7rem;
+    background: #FFC0CB;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #5D4037;
+    transition: background 0.3s;
+    margin-top: 0.5rem;
+}
+.registro-container button:hover {
+    background: #ffb6c1;
+}
+.mensaje {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: red;
 }

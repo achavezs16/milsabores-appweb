@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pastelería Mil Sabores - Blog</title>
+    <title>Pastelería Mil Sabores - Inicio</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
@@ -47,26 +47,20 @@
             <li><a href="./quienes-somos.html">Quienes somos</a></li>
             <li><a href="./catalogo.html">Catálogo</a></li>
             <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contacto.html">Contacto</a></li>            
+            <li><a href="./contacto.html">Contacto</a></li>
         </ul>
     </nav>
-    <main>
-        <h1 style="text-align: center;"> Nuestro Blog</h1>        
-        <section class="blog">
-            <article class="entrada">
-                <img src="./assets/img/torta-vegana-de-chocolate.jpg" alt="Receta Torta Casera">
-                <h2 class="titulo-entrada">Receta de la Semana: Torta Casera de Chocolate</h2>
-                <p>Receta receta receta receta receta receta</p>
-                <a href="#">Leer más</a>
-            </article>
-            <article class="entrada">
-                <img src="./assets/img/torta-vegana-de-chocolate.jpg" alt="Receta Torta Casera">
-                <h2 class="titulo-entrada">Título 2</h2>
-                <p>Receta receta receta receta receta receta</p>
-                <a href="#">Leer más</a>
-            </article>
-        </section>
-
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="registro-container">
+            <h2>Crea tu cuenta</h2>
+            <input type="text" id="nomUser" placeholder="Nombre(s)">
+            <input type="text" id="apUser" placeholder="Apellido(s)">
+            <input type="email" id="emailUser" placeholder="Correo Electrónico">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="registrarUser()">Registrarse</button>
+            <button onclick="window.location.href='login.html'">Volver al login</button>
+            <p id="mensaje" class="mensaje"></p>
+        </div>
     </main>
 
     
@@ -99,6 +93,33 @@
 
     // Actualizar contador apenas se cargue la página
     window.addEventListener("DOMContentLoaded", actualizarContador);
+
+    function registrarUser() {
+        const nomUser = document.getElementById("nomUser").value.trim();
+        const apUser = document.getElementById("apUser").value.trim();
+        const emailUser = document.getElementById("emailUser").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const mensaje = document.getElementById("mensaje");
+
+        if(!nomUser || !emailUser || !password) {
+            mensaje.textContent = "Completa todos los campos.";
+            return;
+        }
+
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        const existeUser = usuarios.some(u => u.emailUser === emailUser);
+        if(existeUser) {
+            mensaje.textContent = "Este correo electrónico ya está asociado a usuario registrado"
+            return;
+        }
+
+        usuarios.push({nomUser, apUser, emailUser, password});
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+        window.location.href = "login.html?registro=ok"
+    }
+
 </script>
 
 

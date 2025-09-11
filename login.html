@@ -26,11 +26,18 @@
         <h1 style="margin: 0;">Pastelería Mil Sabores</h1>
         <p style="margin: 0;">50 años endulzando tus recuerdos</p>
     </div>
-    <div class="cart-icon">
-        <a href="./carrito-compra.html" class="cart-icon">
-        <img width="30px" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
-        <span id="cart-count">0</span>
-        </a>
+    <div class="icons" style="display: flex; gap: 30px;">
+        <div class="cart-icon">
+            <a href="./carrito-compra.html" class="cart-icon">
+            <img src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+            <span id="cart-count">0</span>
+            </a>
+        </div>
+        <div class="user-icon">
+            <a href="./login.html" class="user-icon">
+            <img width="50px" src="./assets/img/user-icon.png" alt="user-icon">
+            </a>
+        </div>
     </div>
 </header>
 <body>
@@ -42,10 +49,15 @@
             <li><a href="./blog.html">Blog</a></li>
         </ul>
     </nav>
-    <main>
-
-
-
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="login-container">
+            <h2>Inicia Sesión</h2>
+            <input type="email" id="email" placeholder="Correo electrónico">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="login()">Ingresar</button>
+            <button onclick="window.location.href='registro-user.html'">Crear cuenta</button>
+            <p id="mensaje" class="mensaje"></p>
+        </div>
     </main>
 
     
@@ -78,6 +90,28 @@
 
     // Actualizar contador apenas se cargue la página
     window.addEventListener("DOMContentLoaded", actualizarContador);
+
+    function login() {
+        const emailUser = document.getElementById("emailUser").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const mensaje = document.getElementById("mensaje");
+
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        const usuarioEncontrado = usuarios.find(u => u.emailUser === emailUser && u.password === password);
+
+        if(usuarioEncontrado) {
+            localStorage.setItem("sesionActiva", emailUser);
+            window.location.href = "index.html";
+        } else {
+            mensaje.textContent = "Correo y/o contraseña incorrecta. Intente nuevamente.";
+        }
+    }
+    
+    const params = new URLSearchParams(window.location.search);
+    if(params.get("registro") === "ok") {
+        document.getElementById("mensaje").style.color = "green";
+        document.getElementById("mensaje").textContent = "¡Cuenta creada! Ahora puedes iniciar sesión"
+    }
 </script>
 
 

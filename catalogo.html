@@ -26,11 +26,18 @@
         <h1 style="margin: 0;">Pastelería Mil Sabores</h1>
         <p style="margin: 0;">50 años endulzando tus recuerdos</p>
     </div>
-    <div class="cart-icon">
-        <a href="./carrito-compra.html" class="cart-icon">
-        <img width="30px" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
-        <span id="cart-count">0</span>
-        </a>
+    <div class="icons" style="display: flex; gap: 30px;">
+        <div class="cart-icon">
+            <a href="./carrito-compra.html" class="cart-icon">
+            <img src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+            <span id="cart-count">0</span>
+            </a>
+        </div>
+        <div class="user-icon">
+            <a href="./login.html" class="user-icon">
+            <img width="50px" src="./assets/img/user-icon.png" alt="user-icon">
+            </a>
+        </div>
     </div>
 </header>
 <body>
@@ -354,7 +361,7 @@
             guardarCarrito(carrito);
             actualizarContador();
 
-            card.querySelector(".num").textContent = 1;
+            card.querySelector(".num").textContent = 0;
 
             mostrarMensaje(`Agregaste ${cantidad} ${nombre} al carrito`);
         });
