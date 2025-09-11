@@ -48,7 +48,7 @@ header .cart-icon img {
 /*INDEX*/
 .hero {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 1px;
     background: linear-gradient(135deg, #FFC0CB, #FFF5E1);
 }
 .hero h2 {
@@ -66,9 +66,16 @@ header .cart-icon img {
     gap: 2rem;
     padding: 2rem;
 }
+.destacados {
+    width: 700px;
+    padding: 10px 25px;
+    background: #FFF5E1;
+    border-radius: 15px;
+}
 .destacados h3 {
     font-family: 'Lato', sans-serif;
     margin-bottom: 1rem;
+    text-align: center;
 }
 .productos {
     display: grid;
@@ -92,9 +99,11 @@ header .cart-icon img {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
+    height: 680px;
 }
-
-
+.playlistMensual p {
+    text-align: justify;
+}
 
 /*FOOTER*/
 footer {

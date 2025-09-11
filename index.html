@@ -61,15 +61,48 @@
                 <div class="productos">
                     <div class="producto">
                         <img src="./assets/img/torta-circular-manjar.webp">
-                        <h4>Torta Circular de Manjar</h4>
-                        <p>$42.000 CLP</p>
+                        <h4 class="nombre">Torta Circular de Manjar</h4>
+                        <p class="precio">$42.000 CLP</p>
+                             <div class="control-cantidad">
+                                <button class="menos">-</button>
+                                <span class="num">0</span>
+                                <button class="mas">+</button>
+                            </div>
+                            <button class="agregar">Agregar al carrito</button>                       
                     </div>
                     <div class="producto">
                         <img src="./assets/img/torta-cuadrada-frutas.webp">
-                        <h4>Torta Cuadrada de Frutas</h4>
-                        <p>$50.000 CLP</p>
+                        <h4 class="nombre">Torta Cuadrada de Frutas</h4>
+                        <p class="precio">$50.000 CLP</p>
+                            <div class="control-cantidad">
+                                <button class="menos">-</button>
+                                <span class="num">0</span>
+                                <button class="mas">+</button>
+                            </div>
+                            <button class="agregar">Agregar al carrito</button>                        
                     </div>
-
+                    <div class="producto">
+                        <img src="./assets/img/cheesecake-trad.avif">
+                        <h4 class="nombre">Cheesecake Sin Azúcar</h4>
+                        <p class="precio">$47.000 CLP</p>
+                            <div class="control-cantidad">
+                                <button class="menos">-</button>
+                                <span class="num">0</span>
+                                <button class="mas">+</button>
+                            </div>
+                            <button class="agregar">Agregar al carrito</button>                        
+                    </div>
+                    <div class="producto">
+                        <img src="./assets/img/galleta-veg-avena.jpg">
+                        <h4 class="nombre">Galleta Vegana de Avena</h4>
+                        <p class="precio">$4.500 CLP</p>
+                            <div class="control-cantidad">
+                                <button class="menos">-</button>
+                                <span class="num">0</span>
+                                <button class="mas">+</button>
+                            </div>
+                            <button class="agregar">Agregar al carrito</button>                        
+                    </div>
                 </div>
 
             </section>
@@ -80,9 +113,9 @@
                 <p>Playlist mensual cuarada por nuestro #TeamMilSabores en Valparaíso, Chile.</p>
                 <p>Visita nuestras sucursales ubicadas en la quinta costa, tal vez escuches una de estas canciones...</p>
                 <iframe data-testid="embed-iframe" 
-                    style="border-radius:12px" 
+                    style="margin-top: 30px; border-radius :12px"  
                     src="https://open.spotify.com/embed/playlist/0zu1O3HiwPYjV2hy9xHYOm?utm_source=generator" 
-                    width="100%" height="380" frameBorder="0" 
+                    width="390px" height="450px" frameBorder="0" 
                     allowfullscreen="" 
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                     loading="lazy">
@@ -118,6 +151,78 @@
             cartCountElement.textContent = totalItems;
         }
     }
+
+    function guardarCarrito(carrito) {
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+    
+        /*AGREGAR PRODUCTOS*/
+    const addToCartButtons = document.querySelectorAll(".agregar");
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const producto = button.closest(".producto");
+            const nombre = producto.querySelector(".nombre").textContent;
+            const precio = parseInt(producto.querySelector(".precio").textContent.replace(/\D/g,''));
+            const cantidad = parseInt(producto.querySelector(".num").textContent);
+            const imagen = producto.querySelector("img").src;
+
+            if(carrito <= 0) {
+                mostrarMensaje(`Debes seleccionar al menos 1 unidad de ${nombre}`);
+                return;
+            }
+
+            let carrito = obtenerCarrito();
+
+            const existente = carrito.find(item => item.nombre === nombre);
+            if(existente) {
+                existente.cantidad += cantidad;
+            } else {
+                carrito.push({nombre, precio, cantidad, imagen});
+            }
+
+            guardarCarrito(carrito);
+            actualizarContador();
+
+            producto.querySelector(".num").textContent = 0;
+
+            mostrarMensaje(`Agregaste ${cantidad} ${nombre} al carrito`);
+        });
+    });
+
+    /* CONTROL BOTONES + - */
+    document.querySelectorAll(".mas").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const quantityElement = btn.parentElement.querySelector(".num");
+            let value = parseInt(quantityElement.textContent);
+            quantityElement.textContent = value + 1;
+        });
+    });
+
+    document.querySelectorAll(".menos").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const quantityElement = btn.parentElement.querySelector(".num");
+            let value = parseInt(quantityElement.textContent);
+            if (value > 1) {
+                quantityElement.textContent = value - 1;
+            }
+        });
+    });
+
+    /*MENSAJE FLOTANTE*/
+    function mostrarMensaje(mensaje) {
+        const mensajeFlotante = document.getElementById("mensaje-flotante");
+        mensajeFlotante.textContent = mensaje;
+        mensajeFlotante.classList.add("mostrar");
+        setTimeout(() => {
+            mensajeFlotante.classList.remove("mostrar");
+        }, 3000);
+    }
+
+    /*INICIALIZAR CONTADOR*/
+    window.addEventListener("DOMContentLoaded", () => {
+        actualizarContador();
+    });
 
     // Actualizar contador apenas se cargue la página
     window.addEventListener("DOMContentLoaded", actualizarContador);
