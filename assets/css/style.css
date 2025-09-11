@@ -74,7 +74,8 @@ header .cart-icon img {
 }
 .destacados h3 {
     font-family: 'Lato', sans-serif;
-    margin-bottom: 1rem;
+    font-size: 25px;
+    margin-bottom: 30px;
     text-align: center;
 }
 .productos {
@@ -100,6 +101,7 @@ header .cart-icon img {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
     height: 680px;
+    width: 400px;
 }
 .playlistMensual p {
     text-align: justify;

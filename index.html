@@ -53,7 +53,7 @@
     <main>
         <section class="hero">
             <h2>Bienvenidos a Pastelería Mil Sabores</h2>
-            <p>50 años creando momentos dulces e inolvidables</p>
+            <p>¡Ahora estamos a un paso más cerca de ti!</p>
         </section>
         <div class="contenedor">
             <section class="destacados">
@@ -103,6 +103,28 @@
                             </div>
                             <button class="agregar">Agregar al carrito</button>                        
                     </div>
+                    <div class="producto">
+                        <img src="./assets/img/empanada-de-manzanas.webp">
+                        <h4 class="nombre">Empanadas de Manzanza</h4>
+                        <p class="precio">$3.000 CLP</p>
+                            <div class="control-cantidad">
+                                <button class="menos">-</button>
+                                <span class="num">0</span>
+                                <button class="mas">+</button>
+                            </div>
+                            <button class="agregar">Agregar al carrito</button>                        
+                    </div>       
+                    <div class="producto">
+                        <img src="./assets/img/torta-naranja.jpg">
+                        <h4 class="nombre">Torta Sin Azúcar de Naranja</h4>
+                        <p class="precio">$48.000 CLP</p>
+                            <div class="control-cantidad">
+                                <button class="menos">-</button>
+                                <span class="num">0</span>
+                                <button class="mas">+</button>
+                            </div>
+                            <button class="agregar">Agregar al carrito</button>                        
+                    </div>                                     
                 </div>
 
             </section>
@@ -167,7 +189,7 @@
             const cantidad = parseInt(producto.querySelector(".num").textContent);
             const imagen = producto.querySelector("img").src;
 
-            if(carrito <= 0) {
+            if(cantidad <= 0) {
                 mostrarMensaje(`Debes seleccionar al menos 1 unidad de ${nombre}`);
                 return;
             }
