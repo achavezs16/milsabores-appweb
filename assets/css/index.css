@@ -1,0 +1,61 @@
+/*INDEX*/
+.hero {
+    text-align: center;
+    padding: 1px;
+    background: linear-gradient(135deg, #FFC0CB, #FFF5E1);
+}
+.hero h2 {
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 0.5rem;
+}
+.hero p {
+    font-size: 1.2rem;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+.destacados {
+    width: 700px;
+    padding: 10px 25px;
+    background: #FFF5E1;
+    border-radius: 15px;
+}
+.destacados h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.producto {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.producto img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+.playlistMensual {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    height: 680px;
+    width: 400px;
+}
+.playlistMensual p {
+    text-align: justify;
+}

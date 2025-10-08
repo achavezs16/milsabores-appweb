@@ -1,0 +1,38 @@
+/*BLOG*/
+.blog {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+.entrada {
+    background: "fff8f2";
+    border: 2px solid #FFD4DA;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.entrada img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.entrada p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+.entrada a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #FFC0CB;
+    color: #5D4037;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.entrada a:hover {
+    background: #ffb6c1;
+}
